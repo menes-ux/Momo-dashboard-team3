@@ -57,9 +57,11 @@ We are using Github projects to track our progress.
 │   └── db.sqlite3            # Database file
 ├── etl/                      # Python Extraction & Transformation scripts
 └── web/                      # CSS and JavaScript assets
-
+---
 
 ## Getting Started
+
+```
 
 ### 1. Prerequisites
 * Python 3.8+ installed.
