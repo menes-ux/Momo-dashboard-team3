@@ -1,22 +1,19 @@
-# 📊 MoMo Data Analysis Dashboard
+# MoMo Data Analysis Dashboard
 
 **Enterprise Web Development - Group Assignment 1**
 
-![Project Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
 ## Team Members (Group 5)
 
-| Role | Name | GitHub Username |
-| :--- | :--- | :--- |
-| **Team Lead / DevOps** | [Student 1 Name] | @username |
-| **Backend Architect** | [Student 2 Name] | @username |
-| **ETL Engineer** | [Student 3 Name] | @username |
-| **Logic Specialist** | [Student 4 Name] | @username |
-| **Frontend Lead** | [Student 5 Name] | @username |
+| Name | GitHub Username |
+| :--- | :--- |
+| Ahmad Musa Daib | @Bangnyfe |
+| Natinael Boda Borana | @Natinael-1 |
+| Tokiniaina Andrianarison Disaine | @tokiniainaDisaine |
+| Uchechukwu Chukwuebuka Ezeibe | @EucTech |
+| Menes Nagnon Adisso | @menes-ux |
 
 ---
 
@@ -34,18 +31,17 @@ This enterprise-grade application processes Mobile Money (MoMo) transaction logs
 
 ## System Architecture
 
-The following diagram illustrates the High-Level Architecture of our solution, detailing the flow from Raw XML to the Frontend Interface.
+The following diagram illustrates the High-Level Architecture of our solution, detailing the flow from Raw XML to the Frontend Interface using Miro.
 
-![Architecture Diagram](./architecture_diagram.png)
-*(Ensure the file 'architecture_diagram.png' is in the root folder)*
+**[Click here to view the System Architecture on Miro](https://miro.com/welcomeonboard/c0F6T0IySTRqWkhFYk9yTVpGYkRVQVZ1cWswQ283Tk9laE13dlhoaHN6SnAxMjEzWXZrbkdJMzRYa2JrNktvRW90YjU4RnUxV2x6Rmt2bmpMZnlDUk8xWHB3NURXdzRGcEEyV1pvdS9rMWwycGZVNnlmaEMzQi9tc3c5aXpCQ3p0R2lncW1vRmFBVnlLcVJzTmdFdlNRPT0hdjE=?share_link_id=184634457912)**
 
 ---
 
 ## Project Management
 
-We are using Agile methodology to track tasks and progress.
+We are using Github projects to track our progress.
 
-* **View our Scrum Board here:** [LINK TO TRELLO / GITHUB PROJECT]
+* **View our Scrum Board here:** [[LINK TO TRELLO / GITHUB PROJECT](https://github.com/users/tokiniainaDisaine/projects/2/views/2)]
 
 ---
 
