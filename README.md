@@ -58,6 +58,7 @@ We are using Github projects to track our progress.
 ├── etl/                      # Python Extraction & Transformation scripts
 └── web/                      # CSS and JavaScript assets
 
+
 ## Getting Started
 
 ### 1. Prerequisites
@@ -71,5 +72,6 @@ Install the required dependencies using pip:
 # Install dependencies
 pip install -r requirements.txt
 
-### 2. Installation
-To run the ETL 
+## Usage
+To run the ETL pipeline data and clean the data
+python etl/run.py
