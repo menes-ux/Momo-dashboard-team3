@@ -34,7 +34,7 @@ This enterprise-grade application processes Mobile Money (MoMo) transaction logs
 
 ## Scrum board
 
-This project uses [Momo-dashboard-team3](https://github.com/users/tokiniainaDisaine/projects/2/views/2) as a scrum board.
+This project uses [Momo-dashboard-team3-board](https://github.com/users/tokiniainaDisaine/projects/2/views/2) as a scrum board.
 
 ---
 
