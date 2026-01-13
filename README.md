@@ -41,7 +41,7 @@ The following diagram illustrates the High-Level Architecture of our solution, d
 
 We are using Github projects to track our progress.
 
-* **View our Scrum Board here:** [[LINK TO TRELLO / GITHUB PROJECT](https://github.com/users/tokiniainaDisaine/projects/2/views/2)]
+* **View our Scrum Board here:** [GITHUB PROJECT](https://github.com/users/tokiniainaDisaine/projects/2/views/2)]
 
 ---
 
