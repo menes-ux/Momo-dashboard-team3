@@ -75,9 +75,10 @@ We are using Github projects to track our progress.
 │   └── db.sqlite3            # Database file
 ├── etl/                      # Python Extraction & Transformation scripts
 └── web/                      # CSS and JavaScript assets
+```
 ---
 
-### Database to JSON Mapping Strategy
+## Database to JSON Mapping Strategy
 
 The following table documents how our SQL columns are serialized into JSON for the API.
 
@@ -94,10 +95,7 @@ The following table documents how our SQL columns are serialized into JSON for t
 | | *N/A* | `receiver` | Object | **Derived:** Join `TransactionUsers` where `role` = 'RECEIVER' |
 | | `categoryId` | `category` | Object | Nested object containing category name |
 
-
-## Getting Started
-
-```
+---
 
 ### 1. Prerequisites
 * Python 3.8+ installed.
@@ -109,8 +107,3 @@ Install the required dependencies using pip:
 ```bash
 # Install dependencies
 pip install -r requirements.txt
-
-## Usage
-To run the ETL pipeline data and clean the data
-python etl/run.py
-
