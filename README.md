@@ -77,6 +77,24 @@ We are using Github projects to track our progress.
 └── web/                      # CSS and JavaScript assets
 ---
 
+### Database to JSON Mapping Strategy
+
+The following table documents how our SQL columns are serialized into JSON for the API.
+
+| Entity | SQL Column (Database) | JSON Key (API) | Data Type | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **User** | `userId` | `userId` | String (UUID) | Primary Key |
+| | `fullName` | `fullName` | String | |
+| | `phoneNumber` | `phoneNumber` | String | |
+| | `userType` | `userType` | String | Enum value |
+| **Transaction** | `transactionId` | `transactionId` | String (UUID) | Primary Key |
+| | `amount` | `amount` | Number | stored as DECIMAL(10,2) |
+| | `transactionDate` | `transactionDate` | String | ISO 8601 Format |
+| **Complex Relations** | *N/A* | `sender` | Object | **Derived:** Join `TransactionUsers` where `role` = 'SENDER' |
+| | *N/A* | `receiver` | Object | **Derived:** Join `TransactionUsers` where `role` = 'RECEIVER' |
+| | `categoryId` | `category` | Object | Nested object containing category name |
+
+
 ## Getting Started
 
 ```
@@ -95,3 +113,4 @@ pip install -r requirements.txt
 ## Usage
 To run the ETL pipeline data and clean the data
 python etl/run.py
+
