@@ -42,7 +42,7 @@ CREATE TABLE Services (
 -- This is Transactions Table
 CREATE TABLE Transactions (
     transactionId CHAR(36) PRIMARY KEY,
-    externalTransactionId VARCHAR(50) UNIQUE, NOT NULL,
+    externalTransactionId VARCHAR(50) UNIQUE NOT NULL,
     amount DECIMAL(10,2),
     currency VARCHAR(5),
     transactionDate DATETIME,
