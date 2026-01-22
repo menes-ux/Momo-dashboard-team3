@@ -1,7 +1,7 @@
 -- This is Users Table
 CREATE TABLE Users (
     userId CHAR(36) PRIMARY KEY,
-    fullName VARCHAR(100),
+    fullName VARCHAR(100) NOT NULL,
     phoneNumber VARCHAR(20),
     userType ENUM('PERSON','BUSINESS','SYSTEM')
 );
@@ -42,7 +42,7 @@ CREATE TABLE Services (
 -- This is Transactions Table
 CREATE TABLE Transactions (
     transactionId CHAR(36) PRIMARY KEY,
-    externalTransactionId VARCHAR(50) UNIQUE,
+    externalTransactionId VARCHAR(50) UNIQUE, NOT NULL,
     amount DECIMAL(10,2),
     currency VARCHAR(5),
     transactionDate DATETIME,
@@ -66,3 +66,17 @@ CREATE TABLE TransactionUsers (
     FOREIGN KEY (transactionId) REFERENCES Transactions(transactionId),
     FOREIGN KEY (userId) REFERENCES Users(userId)
 );
+
+
+--Money cannot be negative
+ALTER TABLE Transactions
+ADD CONSTRAINT amount_should_be_positive CHECK (amount >= 0);
+-- Balance cannot be negative (prevent overdrafts)
+ALTER TABLE Transactions
+ADD CONSTRAINT balance_should_be_positive CHECK (balanceAfter >= 0);
+-- Transactions date should not be in the future
+ALTER TABLE Transactions
+ADD CONSTRAINT transaction_date_should_not_be_future CHECK (transactionDate <= NOW());
+--to make sure logs only use valid statuses
+ALTER TABLE SystemLogs
+ADD CONSTRAINT logs_should_be CHECK (status IN ('PENDING', 'PROCESSED', 'ERROR'));
