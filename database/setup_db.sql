@@ -74,9 +74,7 @@ ADD CONSTRAINT amount_should_be_positive CHECK (amount >= 0);
 -- Balance cannot be negative (prevent overdrafts)
 ALTER TABLE Transactions
 ADD CONSTRAINT balance_should_be_positive CHECK (balanceAfter >= 0);
--- Transactions date should not be in the future
-ALTER TABLE Transactions
-ADD CONSTRAINT transaction_date_should_not_be_future CHECK (transactionDate <= NOW());
+
 --to make sure logs only use valid statuses
 ALTER TABLE SystemLogs
 ADD CONSTRAINT logs_should_be CHECK (status IN ('PENDING', 'PROCESSED', 'ERROR'));
