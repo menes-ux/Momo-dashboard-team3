@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "JSON representation of SQL entities for MoMo API"
+  },
+  "entities": {
+    "user": {
+      "description": "Represents a record from the Users table",
+      "example": {
+        "userId": "550e8400-e29b-41d4-a716-446655440000",
+        "fullName": "Keza Sarah",
+        "phoneNumber": "+250788123456",
+        "userType": "PERSON"
+      }
+    },
+    "service": {
+      "description": "Represents a record from the Services table",
+      "example": {
+        "serviceId": "123e4567-e89b-12d3-a456-426614174000",
+        "serviceName": "Canal+",
+        "serviceType": "UTILITY",
+        "providerPhone": "+250788000000"
+      }
+    },
+    "category_group": {
+      "description": "Represents a Category Group",
+      "example": {
+        "groupId": "a1b2c3d4-e5f6-7890-1234-56789abcdef0",
+        "groupName": "PAYMENT"
+      }
+    },
+    "system_log": {
+      "description": "Represents a System Log entry",
+      "example": {
+        "logId": "log-uuid-12345",
+        "smsAddress": "MOMO_PAY",
+        "messageBody": "Payment of 5000 RWF to MTN confirmed.",
+        "receivedAt": "2023-10-27T10:00:00Z",
+        "processedAt": "2023-10-27T10:00:01Z",
+        "status": "PROCESSED"
+      }
+    },
+    "transaction_complex": {
+      "description": "A COMPLETE Transaction object. This combines data from 'Transactions', 'TransactionUsers', 'TransactionCategories', and 'Services' into one view.",
+      "example": {
+        "transactionId": "txn-uuid-98765",
+        "externalTransactionId": "EXT-2023-001",
+        "amount": 5000.00,
+        "currency": "RWF",
+        "transactionDate": "2023-10-27T10:05:00Z",
+        "transactionType": "OUTGOING",
+        "fee": 100.00,
+        "balanceAfter": 45000.00,
+        "category": {
+          "categoryId": "cat-uuid-111",
+          "categoryName": "Electricity",
+          "content": "Prepaid Token"
+        },
+        "sender": {
+          "userId": "user-uuid-101",
+          "fullName": "Keza Sarah",
+          "phoneNumber": "+250788123456",
+          "role": "SENDER"
+        },
+        "receiver": {
+          "userId": "user-uuid-202",
+          "fullName": "EUCL Rwanda",
+          "phoneNumber": "+250788000000",
+          "role": "RECEIVER"
+        },
+        "service": {
+          "serviceId": "svc-uuid-333",
+          "serviceName": "Cash Power"
+        },
+        "logId": "log-uuid-12345"
+      }
+    }
+  }
+}
