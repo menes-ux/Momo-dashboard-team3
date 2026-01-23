@@ -106,4 +106,4 @@ Install the required dependencies using pip:
 
 ```bash
 # Install dependencies
-pip install -r requirements.txt
+pip install -r requirements.txt 
