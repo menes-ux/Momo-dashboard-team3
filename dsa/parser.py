@@ -118,11 +118,6 @@ class MomoSmsParser:
             json.dump(self.transactions, f, indent=2)
         print(f"Saved {len(self.transactions)} transactions")
     
-
-
-
-
-
 if __name__ == '__main__':
     import sys
     parser = MomoSmsParser(sys.argv[1])
