@@ -76,3 +76,8 @@ class MomoSmsParser:
 
 
 
+if __name__ == '__main__':
+    import sys
+    parser = MomoSmsParser(sys.argv[1])
+    transactions = parser.parseSmsXml()
+    parser.save_json('momoTransactions.json')
