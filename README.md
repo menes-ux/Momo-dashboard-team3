@@ -1,5 +1,16 @@
 # MoMo Data Analysis Dashboard
 
+Run to convert sml  to json
+
+```
+python3 dsa/parser.py modified_sms_v2.xml
+```
+
+Run to start the server
+```
+python3 api/momo_server.py
+```
+
 **Enterprise Web Development - Group Assignment 1**
 
 
