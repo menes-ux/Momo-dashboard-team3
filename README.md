@@ -19,21 +19,26 @@
 
 ## ERD Documentation
 
-Our Momo Database has 7 Tables:
+Our Momo Database has 5 Tables:
 
-**Users Table** stores information about users in the MoMo sms, which include the system, individual and the business. Each user will has a unique id which is the primary key, along with their full name, phone number, and user type classification.
+**Users Table** 
 
-**CategoryGroups Table** categories all the transaction such as UTILITY, PAYMENT, AIRTIME, DATA, and TRANSFER. This table structures, classifys, organizes the transactions.
+This table stores information about users in the MoMo sms, which include the individual and the business. Each user will has a unique id which is the primary key, along with their full name, phone number, and user type classification.
 
-**TransactionCategories Table** stores transaction category details that are linked to CategoryGroups through the groupId foreign key. So each of the category will have a unique categoryId, name, and content, it helps to classify the transaction types within each group.
+**TransactionCategories Table** 
 
-**SystemLogs Table** is keeps all raw SMS messages received from the MoMo system. It stores the main message body, sender address, received timestamp, processing timestamp, and status. So each log entry will have a unique id that serves as the primary key and links to processed transactions.
+This table stores transaction category details that are linked to CategoryGroups through the groupId foreign key. So each of the category will have a unique categoryId, name, and content, it helps to classify the transaction types within each group.
 
-**Services Table** stores providers information such as utility , airtime, and merchants. So each service will have a serviceId, service name, type classification (UTILITY, AIRTIME, DATA, MERCHANT), and provider phone number.
+**SystemLogs Table** 
+This table keeps all raw SMS messages received from the MoMo system. It stores the main message body, sender address, received timestamp, processing timestamp, and status. So each log entry will have a unique id that serves as the primary key and links to processed transactions.
 
-**Transactions Table** is the core entity that stores the whole transaction data extracted from XML SMS logs. So each transaction includes financial details (amount, fee, balance after), transaction type (INCOMING/OUTGOING), and timestamps.
+**Transactions Table** 
 
-**TransactionUsers Table** creates a many-to-many relationship between Transactions and Users, it allow multiple participants in a single transaction. The role (SENDER/RECEIVER) is what distinguishes each user's transaction type, it helps in tracking of money flow between users.
+This table is the core entity that stores the whole transaction data extracted from XML SMS logs. So each transaction includes financial details (amount, fee, balance after), transaction type (INCOMING/OUTGOING), and timestamps.
+
+**TransactionUsers Table** 
+
+This table creates a many-to-many relationship between Transactions and Users, it allow multiple participants in a single transaction. The role (SENDER/RECEIVER) is what distinguishes each user's transaction type, it helps in tracking of money flow between users.
 
 ## Project Overview
 
