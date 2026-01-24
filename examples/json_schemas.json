@@ -46,3 +46,63 @@
         "phoneNumber": null,
         "userType": "PERSON"
       },
+       },
+      "receiver": {
+        "userId": "ddf40e68-f92c-48c4-8ed1-c9107b08e6d2",
+        "fullName": "Jane Smith",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "33865247-93d6-456d-88b6-98151811385b",
+      "amount": 600.0,
+      "currency": "RWF",
+      "transactionType": "OUTGOING",
+      "transactionDate": "2024-05-10T15:32:40.245000",
+      "fee": 0.0,
+      "balanceAfter": 400.0,
+      "category": {
+        "categoryId": "f42ab589-aec3-45f8-83ad-717876a263f1",
+        "categoryName": "Other Transaction",
+        "categoryGroup": "PAYMENT"
+      },
+      "sender": {
+        "userId": "8dddbeb6-c1ef-4c44-b960-50d72d43324d",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "67ad333b-a4f4-4add-a627-af65edc82944",
+        "fullName": "Samuel Carter",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "2f919a9d-2db6-492c-bbde-5a03ec3fa187",
+      "amount": 40000.0,
+      "currency": "RWF",
+      "transactionType": "INCOMING",
+      "transactionDate": "2024-05-11T12:45:36.412000",
+      "fee": 0.0,
+      "balanceAfter": 40400.0,
+      "category": {
+        "categoryId": "ee5f5a17-c158-4b7f-bc79-674f81a914e1",
+        "categoryName": "Bank Deposit",
+        "categoryGroup": "TRANSFER"
+      },
+      "sender": {
+        "userId": "42a06a99-ba36-46f3-a531-ca395aadfcb5",
+        "fullName": "Unknown",
+        "phoneNumber": "+250795963036",
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "64374dff-ec8f-49f4-87c3-0123dc687e42",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      }
+    },
