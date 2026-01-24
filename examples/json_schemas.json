@@ -1,168 +1,212 @@
 {
-  "count": 3,
+  "count": 8,
   "transactions": [
     {
-      "transactionId": "t123e456-7e89-4a12-8123-abc555555555",
-      "externalTransactionId": "MM202405101234",
-      "amount": 5000.00,
-      "currency": "RWF",
-      "transactionType": "OUTGOING",
-      "transactionDate": "2024-05-10T16:30:51Z",
-      "fee": 100.00,
-      "balanceAfter": 24500.00,
-
-      "category": {
-        "categoryId": "c91e5f4a-8a77-4a12-bbb2-0d9a11c22222",
-        "categoryName": "Electricity Bill Payment",
-        "group": {
-          "groupId": "a1f7c2d9-44b1-4d12-9c33-2e9c1d2f1111",
-          "groupName": "UTILITY"
-        }
-      },
-
-      "service": {
-        "serviceId": "f55c9b11-1c3a-4b88-9c21-2a3333333333",
-        "serviceName": "REG Electricity",
-        "serviceType": "UTILITY",
-        "providerPhone": "+250788000111"
-      },
-
-      "participants": [
-        {
-          "user": {
-            "userId": "b3e1c9f4-7d21-4a9f-9b3a-8c1e2f1d9a01",
-            "fullName": "Uche Ezeibe",
-            "phoneNumber": "+250788123456",
-            "userType": "PERSON"
-          },
-          "role": "SENDER"
-        },
-        {
-          "user": {
-            "userId": "sys-0001",
-            "fullName": "MoMo System",
-            "userType": "SYSTEM"
-          },
-          "role": "RECEIVER"
-        }
-      ],
-
-      "systemLog": {
-        "logId": "d88e9a12-5b77-4c44-8123-4f4444444444",
-        "smsAddress": "M-Money",
-        "messageBody": "You have paid 5000 RWF to REG Electricity...",
-        "receivedAt": "2024-05-10T16:30:51Z",
-        "status": "PROCESSED"
-      }
-    },
-
-    {
-      "transactionId": "t223e456-7e89-4a12-8123-airtime001",
-      "externalTransactionId": "MM202405111111",
-      "amount": 1000.00,
-      "currency": "RWF",
-      "transactionType": "OUTGOING",
-      "transactionDate": "2024-05-11T09:15:22Z",
-      "fee": 0.00,
-      "balanceAfter": 23500.00,
-
-      "category": {
-        "categoryId": "c-air-001",
-        "categoryName": "Airtime Purchase",
-        "group": {
-          "groupId": "g-air-001",
-          "groupName": "AIRTIME"
-        }
-      },
-
-      "service": {
-        "serviceId": "s-air-001",
-        "serviceName": "MTN Airtime",
-        "serviceType": "AIRTIME",
-        "providerPhone": "+250788000000"
-      },
-
-      "participants": [
-        {
-          "user": {
-            "userId": "u001",
-            "fullName": "Keza Isimibi",
-            "phoneNumber": "+250788123456",
-            "userType": "PERSON"
-          },
-          "role": "SENDER"
-        },
-        {
-          "user": {
-            "userId": "tel-001",
-            "fullName": "MTN Rwanda",
-            "userType": "COMPANY"
-          },
-          "role": "RECEIVER"
-        }
-      ],
-
-      "systemLog": {
-        "logId": "log-air-001",
-        "smsAddress": "M-Money",
-        "messageBody": "You have purchased 1000 RWF airtime.",
-        "receivedAt": "2024-05-11T09:15:22Z",
-        "status": "PROCESSED"
-      }
-    },
-
-    {
-      "transactionId": "t323e456-7e89-4a12-8123-incoming001",
-      "externalTransactionId": "MM202405121515",
-      "amount": 3000.00,
+      "transactionId": "8e7406cd-6e6d-417d-b89e-fc6bc9ade73f",
+      "amount": 2000.0,
       "currency": "RWF",
       "transactionType": "INCOMING",
-      "transactionDate": "2024-05-12T15:15:30Z",
-      "fee": 0.00,
-      "balanceAfter": 26500.00,
-
+      "transactionDate": "2024-05-10T10:30:58.724000",
+      "fee": 0.0,
+      "balanceAfter": 2000.0,
       "category": {
-        "categoryId": "c-trf-001",
+        "categoryId": "e7288bd7-4204-4ae1-b714-c0c9e171707a",
         "categoryName": "Money Transfer",
-        "group": {
-          "groupId": "g-trf-001",
-          "groupName": "TRANSFER"
-        }
+        "categoryGroup": "TRANSFER"
       },
-
-      "service": {
-        "serviceId": "s-trf-001",
-        "serviceName": "MoMo Transfer",
-        "serviceType": "TRANSFER"
+      "sender": {
+        "userId": "359b1c18-8da9-4f13-8391-4166d0f187ad",
+        "fullName": "Jane Smith",
+        "phoneNumber": null,
+        "userType": "PERSON"
       },
-
-      "participants": [
-        {
-          "user": {
-            "userId": "u002",
-            "fullName": "Menes John",
-            "phoneNumber": "+250788654321",
-            "userType": "PERSON"
-          },
-          "role": "SENDER"
-        },
-        {
-          "user": {
-            "userId": "b3e1c9f4-7d21-4a9f-9b3a-8c1e2f1d9a01",
-            "fullName": "Uche Ezeibe",
-            "phoneNumber": "+250788123456",
-            "userType": "PERSON"
-          },
-          "role": "RECEIVER"
-        }
-      ],
-
-      "systemLog": {
-        "logId": "log-in-001",
-        "smsAddress": "M-Money",
-        "messageBody": "You have received 3000 RWF from John Doe.",
-        "receivedAt": "2024-05-12T15:15:30Z",
-        "status": "PROCESSED"
+      "receiver": {
+        "userId": "e806359d-e4dc-4022-a18a-527a7a42f163",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "7519931b-5fb5-400e-80d5-f57f03cb84a5",
+      "amount": 1000.0,
+      "currency": "RWF",
+      "transactionType": "OUTGOING",
+      "transactionDate": "2024-05-10T10:31:46.754000",
+      "fee": 0.0,
+      "balanceAfter": 1000.0,
+      "category": {
+        "categoryId": "3e4973ae-a509-4184-83c7-99980970fdd0",
+        "categoryName": "Other Transaction",
+        "categoryGroup": "PAYMENT"
+      },
+      "sender": {
+        "userId": "62001616-9e77-4d68-919b-28fdabc274dd",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "ddf40e68-f92c-48c4-8ed1-c9107b08e6d2",
+        "fullName": "Jane Smith",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "33865247-93d6-456d-88b6-98151811385b",
+      "amount": 600.0,
+      "currency": "RWF",
+      "transactionType": "OUTGOING",
+      "transactionDate": "2024-05-10T15:32:40.245000",
+      "fee": 0.0,
+      "balanceAfter": 400.0,
+      "category": {
+        "categoryId": "f42ab589-aec3-45f8-83ad-717876a263f1",
+        "categoryName": "Other Transaction",
+        "categoryGroup": "PAYMENT"
+      },
+      "sender": {
+        "userId": "8dddbeb6-c1ef-4c44-b960-50d72d43324d",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "67ad333b-a4f4-4add-a627-af65edc82944",
+        "fullName": "Samuel Carter",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "2f919a9d-2db6-492c-bbde-5a03ec3fa187",
+      "amount": 40000.0,
+      "currency": "RWF",
+      "transactionType": "INCOMING",
+      "transactionDate": "2024-05-11T12:45:36.412000",
+      "fee": 0.0,
+      "balanceAfter": 40400.0,
+      "category": {
+        "categoryId": "ee5f5a17-c158-4b7f-bc79-674f81a914e1",
+        "categoryName": "Bank Deposit",
+        "categoryGroup": "TRANSFER"
+      },
+      "sender": {
+        "userId": "42a06a99-ba36-46f3-a531-ca395aadfcb5",
+        "fullName": "Unknown",
+        "phoneNumber": "+250795963036",
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "64374dff-ec8f-49f4-87c3-0123dc687e42",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "dcae61f2-b9af-48f8-889e-821ffa28c6bc",
+      "amount": 2000.0,
+      "currency": "RWF",
+      "transactionType": "OUTGOING",
+      "transactionDate": "2024-05-11T12:48:49.409000",
+      "fee": 0.0,
+      "balanceAfter": 38400.0,
+      "category": {
+        "categoryId": "c147fdba-20d7-461a-829b-d719ab456be6",
+        "categoryName": "Other Transaction",
+        "categoryGroup": "PAYMENT"
+      },
+      "sender": {
+        "userId": "628a4565-d649-42d9-a8d5-03b593b3c6e5",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "2b4a80ab-8e5d-4a5d-8857-40c0ca67b742",
+        "fullName": "Samuel Carter",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "18b73189-3f49-4bb3-932c-78ac09ad7bfe",
+      "amount": 10000.0,
+      "currency": "RWF",
+      "transactionType": "OUTGOING",
+      "transactionDate": "2024-05-11T14:34:55.316000",
+      "fee": 100.0,
+      "balanceAfter": 28300.0,
+      "category": {
+        "categoryId": "d84b9c0e-2bdb-43e4-9c32-b96a38923713",
+        "categoryName": "Money Transfer",
+        "categoryGroup": "TRANSFER"
+      },
+      "sender": {
+        "userId": "70c4e193-429d-4c68-bdc3-4074b697f138",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "d2c59dc6-285c-4aed-b77b-c1fc28a4d928",
+        "fullName": "Unknown",
+        "phoneNumber": "+250791666666",
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "82216c64-30e8-4835-b25a-daa80c8449b9",
+      "amount": 1000.0,
+      "currency": "RWF",
+      "transactionType": "OUTGOING",
+      "transactionDate": "2024-05-11T21:47:40.264000",
+      "fee": 20.0,
+      "balanceAfter": 27280.0,
+      "category": {
+        "categoryId": "5be1f3a4-e0fd-4a7c-ba67-a1040c1f458f",
+        "categoryName": "Money Transfer",
+        "categoryGroup": "TRANSFER"
+      },
+      "sender": {
+        "userId": "4e04ee65-24d2-4795-bd73-85b715a67589",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "765de98a-84c6-4c4d-8c7d-9a92c01bafc6",
+        "fullName": "Unknown",
+        "phoneNumber": "+250790777777",
+        "userType": "PERSON"
+      }
+    },
+    {
+      "transactionId": "422656b8-3755-4f82-ad6b-73734e513c1f",
+      "amount": 2000.0,
+      "currency": "RWF",
+      "transactionType": "OUTGOING",
+      "transactionDate": "2024-05-12T05:41:35.734000",
+      "fee": 0.0,
+      "balanceAfter": 25280.0,
+      "category": {
+        "categoryId": "5fc0cb85-3e77-4fba-bc6a-2f3349ec64c6",
+        "categoryName": "Airtime Purchase",
+        "categoryGroup": "AIRTIME"
+      },
+      "sender": {
+        "userId": "7388eabd-2bc6-483e-ac76-b7debac1df3c",
+        "fullName": "Account Holder",
+        "phoneNumber": null,
+        "userType": "PERSON"
+      },
+      "receiver": {
+        "userId": "9836c661-4c30-411d-bc68-10490d4b4f24",
+        "fullName": "Airtime with token  has been completed at",
+        "phoneNumber": null,
+        "userType": "PERSON"
       }
     }
   ]
