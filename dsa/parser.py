@@ -70,6 +70,53 @@ class MomoSmsParser:
         }
         
         return sender, receiver
+    def parseSmsXml(self):
+        tree = ET.parse(self.xml_file)
+        root = tree.getroot()
+
+        for sms in root.findall('sms'):
+            body = sms.get('body', '')
+            date_str = sms.get('date', '')
+            try:
+                timestamp = int(date_str) / 1000
+                transaction_date = datetime.fromtimestamp(timestamp).isoformat()
+            except:
+                transaction_date = datetime.now().isoformat()
+
+            # Extract transaction details from body
+            amount = self.parseAmount(body)
+            balance = self.parseBalance(body)
+            fee = self.parseFee(body)
+            transactionType = self.getTransactionType(body)
+            category_info = self.getTransactionCategory(body)
+            sender, receiver = self.getSenderReceiver(body, transactionType)
+
+            # This is the response transaction dictionary
+            transaction = {
+                'transactionId': str(uuid.uuid4()),
+                'amount': amount,
+                'currency': 'RWF',
+                'transactionType': transactionType,
+                'transactionDate': transaction_date,
+                'fee': fee,
+                'balanceAfter': balance,
+                'category': {
+                    'categoryId': str(uuid.uuid4()),
+                    'categoryName': category_info['categoryName'],
+                    'categoryGroup': category_info['categoryGroup']
+                },
+                'sender': sender,
+                'receiver': receiver
+            }
+
+            self.transactions.append(transaction)
+
+        return self.transactions
+
+    def save_json(self, output_file):
+        with open(output_file, 'w') as f:
+            json.dump(self.transactions, f, indent=2)
+        print(f"Saved {len(self.transactions)} transactions")
     
 
 
