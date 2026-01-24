@@ -52,8 +52,7 @@ class MomoTransaction(BaseHTTPRequestHandler):
         if len(parts) == 2 and parts[0] == 'transactions':
             return 'transactions', parts[1], parse_qs(parsed.query)
         return None, None, {}
-    
-    
+
     def do_GET(self):
         """
         This is a method that handles all the GET requests
@@ -78,69 +77,92 @@ class MomoTransaction(BaseHTTPRequestHandler):
             return self.jsonResponse({'success': True, 'transaction': trans})
         return self.errorResponse(404, f'Transaction {transactionId} not found')
     
-def do_POST(self):
+    def do_POST(self):
+            """
+            This is a method that handles all the POST requests
+            """
+            if not self.verifyUserCredentials():
+                return self.errorResponse(401, 'invalid credentials, Login with your username and password')
+
+            endpoint, _, _ = self._parse_path()
+            if endpoint != 'transactions':
+                return self.errorResponse(404, 'Not found')
+
+            length = int(self.headers.get('Content-Length', 0))
+            raw_body = self.rfile.read(length).decode('utf-8')
+
+            try:
+                body = json.loads(raw_body)
+            except json.JSONDecodeError as e:
+                print(f"JSON Error: {e}")
+                return self.errorResponse(400, f'Invalid JSON: {str(e)}')
+
+            if 'amount' not in body or 'transactionType' not in body:
+                return self.errorResponse(400, 'Missing required fields')
+
+            body['transactionId'] = body.get('transactionId', str(uuid.uuid4()))
+            body['createdAt'] = datetime.now().isoformat()
+            body['createdBy'] = self.current_user
+
+            self.transactions.append(body)
+            self.transactions_dict[body['transactionId']] = body
+
+            return self.jsonResponse({'success': True, "statusCode": 201, 'transaction': body}, 201)
+
+    def do_PUT(self):
+            """
+            This is a method that handles all the PUT requests
+            """
+            if not self.verifyUserCredentials():
+                return self.errorResponse(401, 'invalid credentials, Login with your username and password')
+
+            endpoint, transactionId, _ = self._parse_path()
+            if endpoint != 'transactions' or not transactionId:
+                return self.errorResponse(404, 'Not found')
+
+            if transactionId not in self.transactions_dict:
+                return self.errorResponse(404, f'Transaction {transactionId} not found')
+
+            length = int(self.headers.get('Content-Length', 0))
+            update = json.loads(self.rfile.read(length))
+
+            currentTransaction = self.transactions_dict[transactionId]
+            update['transactionId'] = transactionId
+            update['updatedAt'] = datetime.now().isoformat()
+            update['updatedBy'] = self.current_user
+
+            updated = {**currentTransaction, **update}
+            self.transactions_dict[transactionId] = updated
+
+            for i, t in enumerate(self.transactions):
+                if t['transactionId'] == transactionId:
+                    self.transactions[i] = updated
+                    break
+
+            return self.jsonResponse({'success': True, "statusCode": 200, 'transaction': updated})
+
+    def do_DELETE(self):
         """
-        This is a method that handles all the POST requests
+        This is a method that handles all the DELETE requests
         """
         if not self.verifyUserCredentials():
             return self.errorResponse(401, 'invalid credentials, Login with your username and password')
-        
-        endpoint, _, _ = self._parse_path()
-        if endpoint != 'transactions':
-            return self.errorResponse(404, 'Not found')
-        
-        length = int(self.headers.get('Content-Length', 0))
-        raw_body = self.rfile.read(length).decode('utf-8')
-        
-        try:
-            body = json.loads(raw_body)
-        except json.JSONDecodeError as e:
-            print(f"JSON Error: {e}")
-            return self.errorResponse(400, f'Invalid JSON: {str(e)}')
-        
-        if 'amount' not in body or 'transactionType' not in body:
-            return self.errorResponse(400, 'Missing required fields')
-        
-        body['transactionId'] = body.get('transactionId', str(uuid.uuid4()))
-        body['createdAt'] = datetime.now().isoformat()
-        body['createdBy'] = self.current_user
-        
-        self.transactions.append(body)
-        self.transactions_dict[body['transactionId']] = body
-        
-        return self.jsonResponse({'success': True, "statusCode": 201, 'transaction': body}, 201)
-    
-def do_PUT(self):
-        """
-        This is a method that handles all the PUT requests
-        """
-        if not self.verifyUserCredentials():
-            return self.errorResponse(401, 'invalid credentials, Login with your username and password')
-        
+
         endpoint, transactionId, _ = self._parse_path()
         if endpoint != 'transactions' or not transactionId:
             return self.errorResponse(404, 'Not found')
-        
+
         if transactionId not in self.transactions_dict:
             return self.errorResponse(404, f'Transaction {transactionId} not found')
-        
-        length = int(self.headers.get('Content-Length', 0))
-        update = json.loads(self.rfile.read(length))
-        
-        currentTransaction = self.transactions_dict[transactionId]
-        update['transactionId'] = transactionId
-        update['updatedAt'] = datetime.now().isoformat()
-        update['updatedBy'] = self.current_user
-        
-        updated = {**currentTransaction, **update}
-        self.transactions_dict[transactionId] = updated
-        
-        for i, t in enumerate(self.transactions):
-            if t['transactionId'] == transactionId:
-                self.transactions[i] = updated
-                break
-        
-        return self.jsonResponse({'success': True, "statusCode": 200, 'transaction': updated})
+
+        deleted = self.transactions_dict.pop(transactionId)
+        self.transactions = [t for t in self.transactions if t['transactionId'] != transactionId]
+
+        return self.jsonResponse({'success': True, "statusCode": 200, 'message': 'Deleted', 'transaction': deleted})
+
+    def log_message(self, format, *args):
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] {format % args}")
+
 
 def startMomoTransactions(file='momoTransactions.json'):
     try:
