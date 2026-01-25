@@ -143,7 +143,11 @@ class MomoTransaction(BaseHTTPRequestHandler):
 
     def do_DELETE(self):
         """
-        This is a method that handles all the DELETE requests
+        This is a method that handles all DELETE requests
+
+        :arg: None
+        :returns: error response with status code and message
+
         """
         if not self.verifyUserCredentials():
             return self.errorResponse(401, 'invalid credentials, Login with your username and password')
@@ -161,6 +165,11 @@ class MomoTransaction(BaseHTTPRequestHandler):
         return self.jsonResponse({'success': True, "statusCode": 200, 'message': 'Deleted', 'transaction': deleted})
 
     def log_message(self, format, *args):
+        """
+        Prints a log message with the given format and arguments
+
+        :returns: None
+        """
         print(f"[{datetime.now().strftime('%H:%M:%S')}] {format % args}")
 
 
