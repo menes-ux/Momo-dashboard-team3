@@ -172,6 +172,34 @@ Here are the details for schema definitions, data types, and specific constraint
 | | `role` | ENUM | **PK**. Role in transaction: `'SENDER'` or `'RECEIVER'`. |
 
 
+
+# Detailed AI Usage Log
+
+**Date:** 2026-01-22  
+**Tool:** Gemini
+
+### 1. SQL Schema Validation
+* **Prompts:** * "Check syntax errors in this SQL schema definition."
+    * "Is `Now()` function still valid in MYSQL constraint check?"
+* **Usage:** Used to validate schema syntax and confirm the validity of specific MySQL functions (like `Now()`) within constraints.
+
+### 2. Conceptual Understanding
+* **Prompts:** "Explain views, functions, indexes, and procedures in database schema."
+* **Usage:** To understand the definition and importance of these database components within the project structure.
+
+### 3. Debugging & Code Generation
+* **Usage:** * Clarified the difference between `DATE()` and `TIMESTAMP`.
+    * Identified errors in the API documentation.
+    * **Constraint Fix:** The AI helped correct a syntax error where the `CHECK` keyword was missing.
+* **Code Snippet:**
+    ```sql
+    -- Fixed code provided by AI
+    ADD CONSTRAINT amount_should_be_positive CHECK (amount >= 0);
+    ```
+
+
+
+
 ### 1. Prerequisites
 * Python 3.8+ installed.
 * Git installed.
